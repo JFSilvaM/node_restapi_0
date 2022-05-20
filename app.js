@@ -60,12 +60,7 @@ app.post("/api/personas", (req, res) => {
 
 // ACTUALIZAR UN DATO
 app.put("/api/personas/:id", (req, res) => {
-  let actualizarPersona = `UPDATE personas SET 
-  nombre = "${req.body.nombre}", 
-  edad = "${req.body.nombre}", 
-  domicilio = "${req.body.domicilio}", 
-  ocupacion = "${req.body.ocupacion}" 
-  WHERE id = ${req.params.id}`;
+  let actualizarPersona = `UPDATE personas SET nombre = "${req.body.nombre}", edad = ${req.body.edad}, domicilio = "${req.body.domicilio}", ocupacion = "${req.body.ocupacion}" WHERE id = ${req.params.id}`;
 
   let query = conn.query(actualizarPersona, (err, results) => {
     if (err) throw err;
